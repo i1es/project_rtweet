@@ -1,0 +1,243 @@
+---
+title: "utube"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+### Getting started
+
+```{r}
+library(tuber)
+```
+
+```{r}
+library(tidyverse)
+```
+
+
+```{r}
+yt_oauth("677902702716-r5jhg8cavu79jprsm0pakrkccee1si4e.apps.googleusercontent.com", "2egWEJuXjs-Z6ER4lr1fUTfX", token = '')
+```
+***
+## Voor elke model carwow verzamel comments en replies
+
+### A1 2020
+```{r}
+comments_a1_carwow <- get_all_comments("J4DvaEqCLw0")
+```
+
+```{r}
+comments_a1_carwow_clean <- comments_a1_carwow %>%
+  mutate(model = "A1",
+         model_year = 2020,
+         video_by = "carwow")
+```
+
+
+### A3 2020
+```{r}
+comments_a3_carwow <- get_all_comments("afjY8qGEtTo")
+```
+
+```{r}
+comments_a3_carwow_clean <- comments_a3_carwow %>%
+  mutate(model = "A3",
+         model_year = 2020,
+         video_by = "carwow")
+```
+
+
+### A4 2020
+```{r}
+comments_a4_carwow <- get_all_comments("uDAIfOWAwUc")
+```
+
+```{r}
+comments_a4_carwow_clean <- comments_a4_carwow %>%
+  mutate(model = "A4",
+         model_year = 2020,
+         video_by = "carwow")
+```
+
+### A5 2018
+```{r}
+comments_a5_carwow <- get_all_comments("yPXBIgGHOn4")
+```
+
+```{r}
+comments_a5_carwow_clean <- comments_a5_carwow %>%
+  mutate(model = "A5",
+         model_year = 2018,
+         video_by = "carwow")
+```
+
+### A6 2020
+```{r}
+comments_a6_carwow <- get_all_comments("4K4Is06NRfk")
+```
+
+```{r}
+comments_a6_carwow_clean <- comments_a6_carwow %>%
+  mutate(model = "A6",
+         model_year = 2020,
+         video_by = "carwow")
+```
+
+### A7 2019
+```{r}
+comments_a7_carwow <- get_all_comments("DXlvsIatA6k")
+```
+
+```{r}
+comments_a7_carwow_clean <- comments_a7_carwow %>%
+  mutate(model = "A7",
+         model_year = 2019,
+         video_by = "carwow")
+```
+
+### A8 2019
+```{r}
+comments_a8_carwow <- get_all_comments("ya-DD1dEv38")
+```
+
+```{r}
+comments_a8_carwow_clean <- comments_a8_carwow %>%
+  mutate(model = "A8",
+         model_year = 2019,
+         video_by = "carwow")
+```
+
+
+### Q2 2020
+```{r}
+comments_q2_carwow <- get_all_comments("387NhKKbV7s")
+```
+
+```{r}
+comments_q2_carwow_clean <- comments_q2_carwow %>%
+  mutate(model = "Q2",
+         model_year = 2020,
+         video_by = "carwow")
+```
+
+
+### Q3 2020
+```{r}
+comments_q3_carwow <- get_all_comments("fALbk5lTwNg")
+```
+
+```{r}
+comments_q3_carwow_clean <- comments_q3_carwow %>%
+  mutate(model = "Q3",
+         model_year = 2020,
+         video_by = "carwow")
+```
+
+
+### Q5 2020
+```{r}
+comments_q5_carwow <- get_all_comments("dT-Px_eb2jQ")
+```
+
+```{r}
+comments_q5_carwow_clean <- comments_q5_carwow %>%
+  mutate(model = "Q5",
+         model_year = 2020,
+         video_by = "carwow")
+```
+
+
+### Q7 2020
+```{r}
+comments_q7_carwow <- get_all_comments("thzhQoRldjU")
+```
+
+```{r}
+comments_q7_carwow_clean <- comments_q7_carwow %>%
+  mutate(model = "Q7",
+         model_year = 2020,
+         video_by = "carwow")
+```
+
+
+### Q8 2019
+```{r}
+comments_q8_carwow <- get_all_comments("EumwiVEVZMw")
+```
+
+```{r}
+comments_q8_carwow_clean <- comments_q8_carwow %>%
+  mutate(model = "Q8",
+         model_year = 2019,
+         video_by = "carwow")
+```
+
+
+### e tron 2020
+```{r}
+comments_etron_carwow <- get_all_comments("vmPD-5DjTTg")
+```
+
+```{r}
+comments_etron_carwow_clean <- comments_etron_carwow %>%
+  mutate(model = "e-tron",
+         model_year = 2020,
+         video_by = "carwow")
+```
+
+
+### tt 2018
+```{r}
+comments_tt_carwow <- get_all_comments("5UCcOvoabm8")
+```
+
+```{r}
+comments_tt_carwow_clean <- comments_tt_carwow %>%
+  mutate(model = "tt",
+         model_year = 2018,
+         video_by = "carwow")
+```
+
+***
+
+## bind_rows() alle modellen \n daarna cleanen(laat url naar de video's staan)
+```{r}
+df_comments <- bind_rows(comments_a1_carwow_clean, comments_a3_carwow_clean, comments_a4_carwow_clean, comments_a5_carwow_clean, comments_a6_carwow_clean, comments_a7_carwow_clean, comments_a8_carwow_clean, comments_etron_carwow_clean, comments_q2_carwow_clean, comments_q3_carwow_clean, comments_q5_carwow_clean, comments_q7_carwow_clean, comments_q8_carwow_clean, comments_tt_carwow_clean)
+```
+
+
+### filter out comments in which specific words are not mentioned. Look up the digital dictionary of car parts (doors, )
+
+
+### write csv of original datasets
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
