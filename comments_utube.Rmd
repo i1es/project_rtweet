@@ -12,10 +12,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(tuber)
-```
-
-```{r}
 library(tidyverse)
+library(readr)
 ```
 
 
@@ -202,20 +200,27 @@ comments_tt_carwow_clean <- comments_tt_carwow %>%
          video_by = "carwow")
 ```
 
-***
 
 ## bind_rows() alle modellen \n daarna cleanen(laat url naar de video's staan)
 ```{r}
 df_comments <- bind_rows(comments_a1_carwow_clean, comments_a3_carwow_clean, comments_a4_carwow_clean, comments_a5_carwow_clean, comments_a6_carwow_clean, comments_a7_carwow_clean, comments_a8_carwow_clean, comments_etron_carwow_clean, comments_q2_carwow_clean, comments_q3_carwow_clean, comments_q5_carwow_clean, comments_q7_carwow_clean, comments_q8_carwow_clean, comments_tt_carwow_clean)
 ```
 
+***
 
 ### filter out comments in which specific words are not mentioned. Look up the digital dictionary of car parts (doors, )
 
-
 ### write csv of original datasets
+```{r}
+write_csv(df_comments, "df_comments.csv")
+```
+
+```{r}
+
+```
 
 
+### do sentiment analysis
 
 
 
