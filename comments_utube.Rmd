@@ -16,10 +16,6 @@ library(tidyverse)
 library(readr)
 ```
 
-
-```{r}
-yt_oauth("677902702716-r5jhg8cavu79jprsm0pakrkccee1si4e.apps.googleusercontent.com", "2egWEJuXjs-Z6ER4lr1fUTfX", token = '')
-```
 ***
 ## Voor elke model carwow verzamel comments en replies
 
