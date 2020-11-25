@@ -14,6 +14,7 @@ knitr::opts_chunk$set(echo = TRUE)
 library(tuber)
 library(tidyverse)
 library(readr)
+library(ggplot2)
 ```
 
 ***
@@ -211,20 +212,70 @@ df_comments <- bind_rows(comments_a1_carwow_clean, comments_a3_carwow_clean, com
 write_csv(df_comments, "df_comments.csv")
 ```
 
+***
+
+#### test
 ```{r}
+library(sentimentr)
+```
+
+```{r}
+some_text <- c("this is bad. This is not bad at  all. At least it's fairly priced.")
+```
+
+```{r}
+sentiment(text.var = df_comments$textOriginal) %>% view()
 
 ```
+
+```{r}
+get_sentences(x = df_comments$textOriginal) -> sentences
+```
+
 
 
 ### do sentiment analysis
 
+#### Voeg kolomvariabele om onderscheid te maken:
+#### 'topic' kolom met variabele 'comparison' bij observaties waarbij tekstOriginal
+#### bevat één of meerdere woorden zoals c("")
+
+
+### For extra explanation
+#### regular sentence
+```{r}
+extract_sentiment_terms((sentences[[8]]))
+```
+
+#### neutral sentence
+```{r}
+extract_sentiment_terms((sentences[[7]]))
+```
+
+#### emotions
+```{r}
+emo_a1 <- df_comments %>%
+  filter(model == "A1")
+emotion_a1 <- get_sentences(emo_a1)
+emo <- emotion(emotion_a1)
+
+emo %>%
+  ggplot(aes(emotion_type, emotion_count)) + 
+  geom_col()
+```
+```{r}
+emo %>%
+  ggplot(aes(emotion_type, emotion_count)) + 
+  geom_col() +
+  coord_flip()
+```
 
 
 
-
-
-
-
+### TO DO
+#### maak search table to search comments by specific word c("handbrake", "vents", "size")
+#### maak tab voor wordcloud
+#### 
 
 
 
